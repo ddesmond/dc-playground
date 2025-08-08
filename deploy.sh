@@ -13,8 +13,8 @@ docker run -d \
   -e CUSTOM_USER=yumyum \
   -e CUSTOM_PASSWORD=xxx \
   -e DISABLE_IPV6=true \
-  -e PUID=0 \
-  -e PGID=0 \
+  -e PUID=1000 \
+  -e PGID=1000 \
   -e TZ=Etc/UTC \
   -e SUBFOLDER=/  \
   -e TITLE=deploy.sh  \
@@ -27,3 +27,5 @@ docker run -d \
   --runtime nvidia \
   --restart unless-stopped \
   linuxserver/webtop:ubuntu-xfce
+
+echo "Login to the Playground!"
