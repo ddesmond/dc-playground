@@ -7,7 +7,7 @@ mkdir -p /data
 
 # setup user
 adduser -u 1001 yumyum
-
+usermod -aG docker yumyum
 docker pull linuxserver/webtop:ubuntu-xfce
 
 docker run -d \
@@ -20,7 +20,7 @@ docker run -d \
   -e PGID=1001 \
   -e TZ=Etc/UTC \
   -e SUBFOLDER=/  \
-  -e TITLE=deploy.sh  \
+  -e TITLE=playground  \
   -p 6999:3000 \
   -p 7000:3001 \
   -v /data:/config \
