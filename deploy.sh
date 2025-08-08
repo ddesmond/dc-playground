@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# deploy playground
+# deploy yum yum playground
 nvidia-ctk runtime configure --runtime=docker --set-as-default
 systemctl restart docker
 mkdir -p /data
@@ -8,13 +8,16 @@ mkdir -p /data
 docker pull linuxserver/webtop:ubuntu-xfce
 
 docker run -d \
-  --name=webtop \
+  --name=yumyum \
   --security-opt seccomp=unconfined \
+  -e CUSTOM_USER=yumyum \
+  -e CUSTOM_PASSWORD=xxx \
+  -e DISABLE_IPV6=true \
   -e PUID=0 \
   -e PGID=0 \
   -e TZ=Etc/UTC \
   -e SUBFOLDER=/  \
-  -e TITLE=Webtop  \
+  -e TITLE=deploy.sh  \
   -p 3000:3000 \
   -p 3001:3001 \
   -v /data:/config \
