@@ -18,8 +18,8 @@ docker run -d \
   -e TZ=Etc/UTC \
   -e SUBFOLDER=/  \
   -e TITLE=deploy.sh  \
-  -p 3000:3000 \
-  -p 3001:3001 \
+  -p 6999:3000 \
+  -p 7000:3001 \
   -v /data:/config \
   --shm-size="21gb"  \
   --privileged \
