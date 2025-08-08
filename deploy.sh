@@ -5,6 +5,9 @@ nvidia-ctk runtime configure --runtime=docker --set-as-default
 systemctl restart docker
 mkdir -p /data
 
+# setup user
+adduser -u 1001 yumyum
+
 docker pull linuxserver/webtop:ubuntu-xfce
 
 docker run -d \
@@ -13,8 +16,8 @@ docker run -d \
   -e CUSTOM_USER=yumyum \
   -e CUSTOM_PASSWORD=xxx \
   -e DISABLE_IPV6=true \
-  -e PUID=1000 \
-  -e PGID=1000 \
+  -e PUID=1001 \
+  -e PGID=1001 \
   -e TZ=Etc/UTC \
   -e SUBFOLDER=/  \
   -e TITLE=deploy.sh  \
